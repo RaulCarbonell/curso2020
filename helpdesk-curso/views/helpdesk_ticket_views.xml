@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <odoo>
+<<<<<<< HEAD
 
   <record id="helpdesk_ticket_view_form" model="ir.ui.view">
     <field name="name">helpdesk.ticket.view.form</field>
@@ -69,6 +70,8 @@
     </field>
   </record>
 
+=======
+>>>>>>> 56292683f3156f90b3516e33e709425c48075bf1
   <record id="helpdesk_ticket_action" model="ir.actions.act_window">
     <field name="name">Tickets</field>
     <field name="type">ir.actions.act_window</field>
@@ -76,6 +79,11 @@
     <field name="view_mode">tree,form</field>
   </record>
 
+<<<<<<< HEAD
   <menuitem id="menu_helpdesk_ticket_menu" name="Tickets" parent="helpdesk-curso.menu_helpdesk_ticket_main_menu" action="helpdesk_ticket_action" sequence="10"/>
 
+=======
+  <menuitem id="menu_hd_ticket" name="Tickets"
+             action="helpdesk_ticket_action" sequence="100"/>
+>>>>>>> 56292683f3156f90b3516e33e709425c48075bf1
 </odoo>

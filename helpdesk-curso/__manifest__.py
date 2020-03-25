@@ -12,6 +12,7 @@
     "data": [
         "security/helpdesk_security.xml",
         "security/ir.model.access.csv",
+<<<<<<< HEAD
         "views/menu.xml",
         "wizard/helpdesk_set_responsable_views.xml",
         "views/helpdesk_ticket_views.xml",
@@ -22,6 +23,9 @@
     "depends": [
         "base",
         "mail",
+=======
+        "views/helpdesk_ticket_views.xml",
+>>>>>>> 56292683f3156f90b3516e33e709425c48075bf1
     ],
     "application": True,
     "installable": True,

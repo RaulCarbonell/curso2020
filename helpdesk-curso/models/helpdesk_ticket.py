@@ -7,6 +7,7 @@ from odoo import api, fields, models, _
 class HelpdeskTicket(models.Model):
 
     _name = 'helpdesk.ticket'
+<<<<<<< HEAD
     _description = 'Ticket'
 
     #haciendo esta herencia, se mete el chater en el modelo
@@ -82,3 +83,9 @@ class HelpdeskTicket(models.Model):
         res = super(HelpdeskTicket, self).create(vals)
 
         return res
+=======
+
+    name = fields.Char(string='Name', required=True)
+    description = fields.Text('Description')
+    date_deadline = fields.Datetime('Date limit')
+>>>>>>> 56292683f3156f90b3516e33e709425c48075bf1

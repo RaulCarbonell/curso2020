@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from odoo.tests import SavepointCase
 
 class TestHelpDeskTicket(SavepointCase):
@@ -17,3 +18,24 @@ class TestHelpDeskTicket(SavepointCase):
         })
 
         self.assertEqual(ticket.description,"El usuario es " + self.user_admin.name)
+=======
+from odoo.tests import SavepointCase
+
+class TestHelpDeskTicket(SavepointCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.team_obj = cls.env["helpdesk.team"]
+        cls.ticket_obj = cls.env["helpdesk.ticket"]
+
+        cls.user_admin = cls.env.ref("base.user_admin")      #xml id externo del usuario
+
+
+    def test_create_ticket(self):
+        ticket = self.ticket_obj.create({
+            "name": "Test Ticket",
+            "responsable_id" : self.user_admin.id
+        })
+
+        self.assertEqual(ticket.description,"El usuario es " + self.user_admin.name)
+>>>>>>> 48929ae6924474d487592eea31356d6d8a12d3ea

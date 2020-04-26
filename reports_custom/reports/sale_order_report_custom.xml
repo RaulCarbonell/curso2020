@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
   <template id="report_saleorder_document_custom">
-      <t t-call="web.external_layout">
-          <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)" />
+      <t t-call="web.external_layout">          
           <div class="page">
               <h2 class="mt16">
                 <t t-if="not (env.context.get('proforma', False) or is_pro_forma)">
@@ -60,7 +59,7 @@
       </t>
   </template>
 
-  <template id="report_saleorder_document_custom2" inherit_id="reports_custom.report_saleorder_document_custom">
+  <template id="report_saleorder_document_custom2" inherit_id="reports_custom.report_saleorder_document_custom" primary="True">
     <xpath expr="//footer[@class='footer']" position="replace">
       <footer class="footer">
          <div class="container">

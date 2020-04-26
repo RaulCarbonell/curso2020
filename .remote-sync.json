@@ -1,0 +1,19 @@
+{
+  "logger": {
+    "title": "Remote Sync"
+  },
+  "uploadOnSave": false,
+  "useAtomicWrites": false,
+  "deleteLocal": false,
+  "hostname": "172.18.15.29",
+  "port": "22",
+  "target": "/home/raul/custom-addons/curso2020",
+  "ignore": [
+    ".remote-sync.json",
+    ".git/**"
+  ],
+  "username": "root",
+  "password": "Temporal01!",
+  "watch": [],
+  "transport": "scp"
+}

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
   <template id="report_saleorder_document_custom">
-      <t t-call="web.external_layout">          
+      <t t-call="web.external_layout">
           <div class="page">
               <h2 class="mt16">
                 <t t-if="not (env.context.get('proforma', False) or is_pro_forma)">
@@ -50,25 +50,34 @@
                   </t>
                 </tbody>
               </table>
-              <footer class="footer">
-                <div class="container">
-                  <span class="text-muted">Copia para el cliente</span>
-                </div>
-              </footer>
+                <footer class="footer">
+                  <div class="container">
+                    <span class="text-muted">Copia para el cliente</span>
+                  </div>
+                </footer>
+
           </div>
       </t>
   </template>
 
+  <!-- Al poner primary=True, hacemos que no modifica el report que hereda,
+  sino que crea un report nuevo con la misma característica del report heredado
+  pero con las moficiaciones que se añaden aquí -->
   <template id="report_saleorder_document_custom2" inherit_id="reports_custom.report_saleorder_document_custom" primary="True">
-    <xpath expr="//footer[@class='footer']" position="replace">
-      <footer class="footer">
-         <div class="container">
-          <span class="text-muted">Copia para el comercial</span>
-        </div>
-      </footer>
-    </xpath>
-  </template>
+      <xpath expr="//footer[@class='footer']" position="replace">
+        <footer class="footer">
+           <div class="container">
+            <span class="text-muted">Copia para el comercial</span>
+          </div>
+        </footer>
+      </xpath>
+    </template>
 
+  <!-- Este template hereda al "sale.report_saleorder" (report principal de
+  los pedidos) y lo modifica, indicando todo su container por este.
+  Esto hace que llame a mis templates nuevos, en vez de usar los templates
+  por defecto. Por lo tanto estamos sustituyendo el report principal por el
+  nuestro modificado -->
   <template id="report_saleorder_custom" inherit_id="sale.report_saleorder">
     <xpath expr="//t[@t-call='web.html_container']" position="replace">
       <t t-call="web.html_container">
@@ -80,6 +89,8 @@
     </xpath>
   </template>
 
+  <!-- Crear un report en el Pedido que llama al template
+  "report_saleorder_custom"  -->
   <report
       id="action_report_saleorder_custom"
       string="Order Custom"
